@@ -221,14 +221,13 @@ exercises = {
 }
 
 workout = []
-seen_ex = set()
 last_groups = set()
 for _ in range(ex_per_cycle):
     # TODO: Emergency brake
     remaining = [
         k
         for k, v in exercises.items()
-        if k not in seen_ex and not v.intersection(last_groups)
+        if k not in workout and not v.intersection(last_groups)
     ]
     if len(remaining) == 0:
         raise RuntimeError("Ran out of exercises!")
