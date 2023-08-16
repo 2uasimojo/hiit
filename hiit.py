@@ -33,12 +33,14 @@ exercises = {
         (
             "deltoids",
             "rhomboids",
+            "lumbar",
         )
     ),
     "Bent over row": set(
         (
             "lats",
             "biceps",
+            "lumbar",
         )
     ),
     "Renegade Row": set(
