@@ -12,6 +12,14 @@ ex_per_cycle = 11
 # Python-ism: dict
 # https://docs.python.org/3/library/stdtypes.html#mapping-types-dict
 exercises = {
+    "Side lunges": set(
+        (
+            "quads",
+            "glutes",
+            "adductors",
+        )
+    ),
+    "Plough rollovers": set(("core",)),
     "Overhead triceps": set(("triceps",)),
     "DB Curls": set(("biceps",)),
     "Arnold Press": set(("deltoids",)),
