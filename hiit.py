@@ -22,7 +22,12 @@ exercises = {
     "Plough rollovers": set(("core",)),
     "Overhead triceps": set(("triceps",)),
     "DB Curls": set(("biceps",)),
-    "Arnold Press": set(("deltoids",)),
+    "Arnold Press": set(
+        (
+            "deltoids",
+            "triceps",
+        )
+    ),
     "Wall Ball": set(
         (
             "triceps",
