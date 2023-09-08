@@ -7,7 +7,12 @@ ex_per_cycle = 11
 exercises = {
     "Overhead triceps": set(("triceps",)),
     "DB Curls": set(("biceps",)),
-    "Arnold Press": set(("deltoids",triceps,)),
+    "Arnold Press": set(
+        (
+            "deltoids",
+            "triceps",
+        )
+    ),
     "Wall Ball": set(
         (
             "triceps",
