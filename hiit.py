@@ -261,6 +261,7 @@ exercises = {
             "calves",
         )
     ),
+    "Butterfly Kicks": set(("core",)),
 }
 
 # A list to accumulate the sequence of exercises in a workout.
