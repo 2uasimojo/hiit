@@ -240,6 +240,27 @@ exercises = {
             "glutes",
         )
     ),
+    "Surrender": set(
+        (
+            "quads",
+            "adductors",
+        )
+    ),
+    "Band Resistance Squats": set(
+        (
+            "quads",
+            "abductors",
+        )
+    ),
+    "Side Leg Raise": set(("abductors",)),
+    "Step Up High Knees": set(
+        (
+            "quads",
+            "hip flexors",
+            "cardio",
+            "calves",
+        )
+    ),
 }
 
 # A list to accumulate the sequence of exercises in a workout.
