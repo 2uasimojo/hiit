@@ -331,12 +331,12 @@ last_groups = set()
 #   case we want to run `ex_per_cycle` iterations of the loop because we want
 #   to generate a workout with `ex_per_cycle` exercises.
 #   https://docs.python.org/3/library/stdtypes.html#typesseq
-# - The `_` (underscore) is where we would normally put the loop variable, like
-#   `i`. But we don't have a use for that variable -- we just want to run the
-#   loop a certain number of times -- so we use `_`, which by convention
-#   indicates "unused".
+# - `i` is the loop variable, assigned next the value from the `range`
+#   operation on each successive iteration, starting with `0`. We're using this
+#   to toggle between cardio (even numbers) and not-cardio (odd numbers)
+#   exercises.
 #   https://docs.python.org/3/reference/lexical_analysis.html#reserved-classes-of-identifiers
-for _ in range(ex_per_cycle):
+for i in range(ex_per_cycle):
     # On each loop iteration, we build a list of exercises from which to choose
     # the next one to add to our workout.
     # Python-ism: This way of generating a list is called "list comprehension".
@@ -348,7 +348,8 @@ for _ in range(ex_per_cycle):
         # `exercises` dictionary -- `k` is the key (the exercise name) and`v`
         # is the value (the set of muscle groups for that entry).
         for k, v in exercises.items()
-        # ...but we only add this `k` to the list if these two conditions hold:
+        # ...but we only add this `k` to the list if these three conditions
+        # hold:
         # - `k` isn't already in the `workout` list we're generating -- i.e.
         #   make sure we don't duplicate exercises in a workout.
         # - The intersection (as in set mathematics, the overlapping part of
@@ -356,13 +357,45 @@ for _ in range(ex_per_cycle):
         #   `last_groups` (the set of muscle groups from the previous iteration
         #   -- see below) is empty. This ensures we don't hit the same muscle
         #   group two exercises in a row.
+        # - Every other exercise is one with "cardio" listed. More details
+        #   below.
         # Python-ism: `not <whatever>` means that `<whatever>` must evaluate to
         # False for the condition to fire. In Python, in addition to actual
         # True and False, other data types are implicitly True or False if
         # they're non-empty or empty, respectively. In this case an empty set
         # is implicitly False, and that's the logic we're counting on.
         # https://docs.python.org/3/library/stdtypes.html#truth-value-testing
-        if k not in workout and not v.intersection(last_groups)
+        if k not in workout
+        and not v.intersection(last_groups)
+        # - `i` is the loop variable, starting at `0` and ending at
+        #   `ex_per_cycle - 1`
+        # - `%` is the "modulo", or "remainder", operator. The result of
+        #   `x % y` is the remainder after you do whole-number division of
+        #   `x / y`.
+        # - So `i % 2` on each iteration will get you 0, 1, 0, 1, ...
+        # - `bool(thing)` results in a True or False value depending on
+        #   `thing`. In Python, `bool(0)` is False and `bool(<nonzero>)` is
+        #   True. So `bool(i % 2)` on each iteration will get us False, True,
+        #   False, ...
+        # - `v` is the set of muscle groups for the exercise (k) we're deciding
+        #   whether to include in the set of `candidates`.
+        # - `"cardio" in v` will be True if and only if that set of muscle
+        #   groups includes "cardio".
+        # - `!=` means "not equal". So on each iteration we're evaluating two
+        #   True/False expressions and generating a third based on whether they
+        #   are both True, both False, or one of each. In this case we'll get
+        #   True if it's one of each.
+        # - So the point of this whole clause is to flip-flop back and forth
+        #   between cardio and non-cardio exercises on each iteration.
+        # So you can read this expression as: "if we're on an even-numbered
+        # iteration, pick a cardio exercise; if we're on an odd-numbered
+        # iteration, pick a non-cardio exercise". Note that since `i`, the loop
+        # control variable, starts at zero, which is even, this means we'll get
+        # cardio, non-cardio, cardio... If we wanted it the other way around,
+        # we would switch `!=` to `==`.
+        # Comment out this line to get back to the old behavior, where we only
+        # avoid repeating muscle groups.
+        and bool(i % 2) != ("cardio" in v)
     ]
     # This is a stop-gap in case we somehow were unable to find any exercises
     # that match our criteria. If we allowed the loop to keep running, it would
