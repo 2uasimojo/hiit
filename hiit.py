@@ -28,6 +28,12 @@ exercises = {
             "triceps",
         )
     ),
+    "Military Press": set(
+        (
+            "deltoids",
+            "triceps",
+        )
+    ),
     "Wall Ball": set(
         (
             "triceps",
@@ -151,6 +157,18 @@ exercises = {
             "calves",
         )
     ),
+    "Tuck Jump": set(
+        (
+            "cardio",
+            "core",
+        )
+    ),
+    "Upright Crunch": set(
+        (
+            "cardio",
+            "core",
+        )
+    ),
     "Jumping Jacks": set(
         (
             "cardio",
@@ -164,12 +182,34 @@ exercises = {
         )
     ),
     "Russian Twist": set(("core",)),
+    "Supine Twist": set(("core",)),
     "Bird Dog": set(
         (
             "deltoids",
             "glutes",
         )
     ),
+    "Crab Toe Tap": set(
+        (
+            "triceps",
+            "deltoids",
+        )
+    ),
+    "Walk-Out Pushup": set(
+        (
+            "triceps",
+            "pecs",
+            "deltoids",
+        )
+    ),
+    "Wave Pushup": set(
+        (
+            "triceps",
+            "pecs",
+            "core",
+        )
+    ),
+    "Duck Walk": set(("quads",)),
     "Battle Rope": set(("cardio",)),
     "Bag Kicks": set(
         (
@@ -179,6 +219,20 @@ exercises = {
         )
     ),
     "Bear Crawl": set(
+        (
+            "cardio",
+            "triceps",
+            "deltoids",
+        )
+    ),
+    "Spiderman": set(
+        (
+            "cardio",
+            "triceps",
+            "deltoids",
+        )
+    ),
+    "Army Crawl": set(
         (
             "cardio",
             "triceps",
