@@ -109,6 +109,7 @@ exercises = {
             "glutes",
         )
     ),
+    "Skier squats": set({"quads",}),
     "DB reverse Lunge": set(
         (
             "quads",
